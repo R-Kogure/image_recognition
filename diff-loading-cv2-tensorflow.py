@@ -33,5 +33,9 @@ img_cv2 /= np.std(img_cv2, axis =0)
 new_img = np.expand_dims(img_to_array(img_cv2), axis =0)
 
 
+#-------------------------
+#convert single image to a batch
+train_arr = np.array([new_img])
+# ref https://www.tensorflow.org/api_docs/python/tf/keras/utils/load_img
 
 #author : R. Kogure
