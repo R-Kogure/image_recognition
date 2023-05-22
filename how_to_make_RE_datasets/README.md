@@ -53,8 +53,11 @@ for i in range(len(x_train)):
 
 適用したい任意のモデルの入力などに合わせてresizeして使ったり...  
 例えば
+
 ```python
-func = lamda x : tf.image.resize(x, (224, 224))
-x_train = tf.py_function(func, [x_train], tf.float32)
+
+func = lamda x : tf.image.resize(x, (224, 224)) #任意のサイズで
+x_train_erased = tf.py_function(func, [x_train_erased], tf.float32)
+
 ```
 などを実行することで(N, 224, 224, 3)に変形できる．  
