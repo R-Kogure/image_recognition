@@ -32,6 +32,23 @@ def randomerasing(image, prob = 0.5, sl = 0.02, sh = 0.4, rl = 0.3):
 
 ```
 
+
+### REを適用したデータセットを作る
+
+```python
+#何らかのデータセットを持ってくる
+(x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()  
+
+
+x_train_erased = np.copy(x_train) #erasedがREを適用したデータを入れるところ
+
+for i in range(len(x_train)):
+    x_train_erased[i] = randomerasing(x_train[i])
+
+# RE適用率50%のデータセットができる
+
+```
+
 ### この後どう使うのか的なところ
 
 適用したい任意のモデルの入力などに合わせてresizeして使ったり...  
